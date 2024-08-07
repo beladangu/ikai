@@ -7,25 +7,59 @@ body {
 header {
   background-color: #333;
   color: white;
-  padding: 1em 0;
+  padding: 0.5em 0; /* Ajustado para dispositivos móviles */
 }
 
 nav ul {
   list-style: none;
   display: flex;
+  flex-direction: row; /* Elementos en una fila en pantallas grandes */
   justify-content: center;
   margin: 0;
   padding: 0;
 }
 
 nav ul li {
-  margin: 0 1em;
+  margin: 0 0.5em; /* Ajustado para pantallas pequeñas */
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1em; /* Ajustado para pantallas pequeñas */
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu li {
+  padding: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.5em 1em;
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #555;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
 }
 
 #inicio {
@@ -44,8 +78,9 @@ nav ul li a {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
+  background-size: cover; /* Asegura que la imagen cubra el área del contenedor */
+  background-position: center; /* Centra la imagen en el contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
   animation: slide 16s infinite;
 }
 
@@ -84,72 +119,28 @@ nav ul li a {
 
 /* Media query para dispositivos móviles */
 @media (max-width: 768px) {
-  .carousel-text h1 {
-      font-size: 2em;
-  }
-
-  .carousel-text p {
-      font-size: 1em;
+  nav ul {
+    flex-direction: column; /* Cambia la dirección a columna en móviles */
   }
 
   nav ul li {
-      margin: 0 0.5em;
+    margin: 0.5em 0; /* Ajusta el margen vertical */
+  }
+
+  .carousel-text h1 {
+    font-size: 2em;
+  }
+
+  .carousel-text p {
+    font-size: 1em;
   }
 
   nav ul li a {
-      font-size: 1em;
+    font-size: 1em;
   }
-}
-/* Estilos previos */
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  position: relative;
-  margin: 0 1em;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2em;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #333;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.dropdown-menu li {
-  padding: 0;
-}
-
-.dropdown-menu li a {
-  display: block;
-  padding: 0.5em 1em;
-  color: white;
-  text-decoration: none;
-  font-size: 1em;
-}
-
-.dropdown-menu li a:hover {
-  background-color: #555;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
+  .dropdown-menu {
+    position: static; /* Hace que el menú desplegable se muestre correctamente */
+    box-shadow: none; /* Elimina la sombra para móviles */
+  }
 }
